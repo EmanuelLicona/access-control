@@ -13,8 +13,9 @@
     <div class="container">
         <div class="d-flex justify-content-between">
             <h3>Lista de usuarios</h3>
-            <a href="" class="btn btn-primary">Crear usuario</a>
+            <a href="{{ route('users.create') }}" class="btn btn-primary">Crear usuario</a>
         </div>
+
         @include('users._partials.table')
     </div>
 @endsection

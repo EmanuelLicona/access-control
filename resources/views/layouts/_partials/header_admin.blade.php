@@ -13,7 +13,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('login') }}">Cerrar sesion</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('users.index') }}">Usuarios</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ route('auth.destroy') }}">Cerrar sesion</a>
                     </li>
 
                     {{-- <li class="nav-item">
