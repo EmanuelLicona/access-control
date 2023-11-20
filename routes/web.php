@@ -1,19 +1,9 @@
 <?php
 
+use App\Http\Controllers\Access\AccessController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::middleware('guest')->group(function () {
     Route::get('/', function () {
@@ -36,4 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
+
+
+    Route::get('/access', [AccessController::class, 'index'])->name('access.index');
 });

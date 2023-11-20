@@ -17,6 +17,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ route('access.index') }}">Registros de accesos</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('auth.destroy') }}">Cerrar sesion</a>
                     </li>
 
