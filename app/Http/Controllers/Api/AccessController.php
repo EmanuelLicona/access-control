@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class AccessController extends Controller
 {
+
+
     public function store(Request $request)
     {
         $request->validate([

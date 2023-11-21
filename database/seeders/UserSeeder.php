@@ -17,20 +17,16 @@ class UserSeeder extends Seeder
         User::create([
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
-            'first_name' => 'Super',
-            'last_name' => 'Admin',
+            'first_name' => 'admin',
+            'last_name' => 'admin',
             'code' => '1010',
             'is_admin' => true
         ]);
 
-        $access = new Access();
-        $access->date = now();
-        $access->user_id = 1;
-        $access->save();
+        // $access = new Access();
+        // $access->date = now();
+        // $access->user_id = 1;
+        // $access->save();
 
-        $access = new Access();
-        $access->date = now()->addMinutes(10); // mas un 10 min
-        $access->user_id = 1;
-        $access->save();
     }
 }

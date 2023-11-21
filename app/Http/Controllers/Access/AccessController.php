@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Access;
 
 use App\Http\Controllers\Controller;
 use App\Models\Access;
+use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class AccessController extends Controller
@@ -22,17 +24,27 @@ class AccessController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $id): View
     {
-        //
+        $user = User::find($id);
+        return view('access.create', compact('user'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, string $user_id)
     {
-        //
+        $request->validate([
+            'type' => 'required',
+            'date' => 'required',
+        ]);
+
+        $access = new Access();
+        $access->user_id = $user_id;
+        // $access->type = $request->type;
+        $access->created_at = $request->date;
+        $access->save();
     }
 
     /**

@@ -26,7 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users/create', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/edit/{id}', [UserController::class, 'update'])->name('users.update');
 
 
     Route::get('/access', [AccessController::class, 'index'])->name('access.index');
+    Route::get('/access/create/{id}', [AccessController::class, 'create'])->name('access.create');
 });

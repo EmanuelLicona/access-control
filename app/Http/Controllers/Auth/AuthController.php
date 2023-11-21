@@ -18,16 +18,23 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            'remember' => 'boolean'
+            // 'remember' => ''
         ]);
 
         $credentials = $request->only('email', 'password');
-
         $remember = $request->remember ?? false;
 
         if (auth()->attempt($credentials, $remember)) {
-            $request->session()->regenerate();
-            return redirect()->route('users.index');
+
+            $user = auth()->user();
+            if ($user->is_admin) {
+                // Authentication passed...
+                $request->session()->regenerate();
+                return redirect()->route('home');
+            } else {
+                auth()->logout();
+                return back()->withErrors('No tienes permisos para acceder');
+            }
         }
 
         return back()->withErrors('Las credenciales no son correctas');

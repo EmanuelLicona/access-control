@@ -3,17 +3,11 @@
 @include('layouts._partials.header_admin')
 
 @section('content')
-    <div class="container">
-        <h1>
-            {{-- Hola {{ auth()->user()->name }} --}}
-            Hola Nombre del usuario
-        </h1>
-    </div>
-
-    <div class="container">
-        <div class="d-flex justify-content-between">
-            <h3>Lista de usuarios</h3>
-            <a href="{{ route('users.create') }}" class="btn btn-primary">Crear usuario</a>
+ 
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between mb-4 ">
+            <h1>Lista de empleados</h1>
+            <a href="{{ route('users.create') }}" class="btn btn-primary my-auto">Nuevo</a>
         </div>
 
         @include('users._partials.table')
