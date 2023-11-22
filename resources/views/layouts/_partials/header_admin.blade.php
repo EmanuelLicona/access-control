@@ -27,7 +27,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('auth.destroy') }}">Mi perfil</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('profile.index') }}">Mi perfil</a>
                     </li>
 
                     <li class="nav-item">

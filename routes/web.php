@@ -3,6 +3,7 @@
 use App\Http\Controllers\Access\AccessController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,4 +39,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/export', [ExcelController::class, 'index'])->name('exports.index');
     Route::get('/export/employees', [ExcelController::class, 'export_employees'])->name('exports.employees');
     Route::post('/export/access', [ExcelController::class, 'export_access'])->name('exports.access');
+
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profile/edit/{id}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/edit/password/{id}', [ProfileController::class, 'chage_password'])->name('profile.password');
 });

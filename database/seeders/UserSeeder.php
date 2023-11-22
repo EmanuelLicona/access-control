@@ -19,14 +19,8 @@ class UserSeeder extends Seeder
             'password' => bcrypt('password'),
             'first_name' => 'admin',
             'last_name' => 'admin',
-            'code' => '1010',
+            'code' => '0001',
             'is_admin' => true
         ]);
-
-        // $access = new Access();
-        // $access->date = now();
-        // $access->user_id = 1;
-        // $access->save();
-
     }
 }
