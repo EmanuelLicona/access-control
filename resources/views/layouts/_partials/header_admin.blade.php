@@ -23,6 +23,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ route('exports.index') }}">Exportar </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('auth.destroy') }}">Mi perfil</a>
                     </li>
 

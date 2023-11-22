@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Access\AccessController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ExcelController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/access', [AccessController::class, 'index'])->name('access.index');
     Route::get('/access/create/{id}', [AccessController::class, 'create'])->name('access.create');
     Route::post('/access/create/{id}', [AccessController::class, 'store'])->name('access.store');
+
+    Route::get('/export', [ExcelController::class, 'index'])->name('exports.index');
+    Route::get('/export/employees', [ExcelController::class, 'export_employees'])->name('exports.employees');
 });
