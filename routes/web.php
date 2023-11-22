@@ -37,4 +37,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/export', [ExcelController::class, 'index'])->name('exports.index');
     Route::get('/export/employees', [ExcelController::class, 'export_employees'])->name('exports.employees');
+    Route::post('/export/access', [ExcelController::class, 'export_access'])->name('exports.access');
 });
