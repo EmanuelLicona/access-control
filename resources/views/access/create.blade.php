@@ -21,7 +21,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('users.store') }}">
+            <form method="POST" action="{{ route('access.store', $user->id) }}">
                 @csrf
                 <div class="row">
                     <div class="mb-3 col-md-6">
@@ -45,24 +45,26 @@
                     <input type="text" pattern="\d{4}" class="form-control" id="inputCode" aria-describedby="emailHelp"
                         name="code" maxlength="4" value="{{ $user->code }}" disabled required>
                 </div>
-                
+
                 <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Tipo de registro</option>
-                        <option value="a">Entrada</option>
-                        <option value="b">Salida</option>
+                    <select class="form-select" aria-label="Default select example" name="type" required>
+                        <option @if (old('type') == '') selected @endif>Tipo de registro</option>
+                        <option value="a" @if (old('type') == 'a') selected @endif >Entrada</option>
+                        <option value="b" @if (old('type') == 'b') selected @endif >Salida</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label for="inputDate" class="form-label">Fecha <span class="text-danger">*</span></label>
-                    <input type="datetime-local"  class="form-control" id="inputDate" aria-describedby="emailHelp"
-                        name="date" required>
+                    <input type="datetime-local" class="form-control" id="inputDate" aria-describedby="emailHelp"
+                        name="date"
+                        value="{{ old('date') }}"
+                        required>
                 </div>
-                
+
                 <div class="d-flex gap-1">
                     <button type="submit" class="btn btn-primary">Guardar</button>
-                    <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancelar</a>
+                    <a href="{{ route('access.index') }}" class="btn btn-secondary">Cancelar</a>
                 </div>
             </form>
         </div>

@@ -15,6 +15,7 @@ class AccessController extends Controller
     {
         $request->validate([
             'code' => 'required|max:4',
+            'type' => 'required | in:a,b',
         ]);
 
         $user = User::where('code', $request->code)->first();
@@ -27,6 +28,7 @@ class AccessController extends Controller
 
         $acess = new Access();
         $acess->user_id = $user->id;
+        $acess->type = $request->type == 'a' ? 'in' : 'out';
         $acess->save();
 
         return response()->json([

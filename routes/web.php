@@ -32,4 +32,5 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/access', [AccessController::class, 'index'])->name('access.index');
     Route::get('/access/create/{id}', [AccessController::class, 'create'])->name('access.create');
+    Route::post('/access/create/{id}', [AccessController::class, 'store'])->name('access.store');
 });
