@@ -60,7 +60,7 @@ class UserController extends Controller
         );
 
         $user = new User();
-        $user->email = $request->email ?? '';
+        // $user->email = $request->email ?? '';
         $user->code = $request->code;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
